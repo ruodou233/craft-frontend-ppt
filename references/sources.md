@@ -20,6 +20,12 @@
 - https://github.com/vercel-labs/web-interface-guidelines
 - https://github.com/emilkowalski/skill
 
+## 仅作参考的案例
+
+| 案例 | 访问日期 | 参考内容 | 采用边界 |
+| --- | --- | --- | --- |
+| Son Daven，https://sondaven.com/en；项目说明见 https://webflow.com/made-in-webflow/website/sondaven-dev | 2026-07-19 | 电影感编辑式滚动叙事、滚动绑定的多层视差、拆分文字揭示与逐字符动态排版的组合方式 | `reference-only`；只抽象采用滚动进度映射、层级语义和文字编排方法，不复用其源码、品牌、字体、配色、栅格、文案、图像、视频、音频、图标、场景素材或特有编排序列 |
+
 ## 明确排除
 
 `nextlevelbuilder/ui-ux-pro-max-skill` 不是本 Skill 的来源。本 Skill 未采用该项目的文字、模板、设计系统、配色或资产。

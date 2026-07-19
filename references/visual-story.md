@@ -28,6 +28,8 @@
 
 先按节拍关键词寻找画面或官方输出本身就能承载该段语义的既有视觉作品，而不是只按技术名称搜索。候选可为栅格图、插画、纹理、SVG、Canvas、WebGL、着色器（shader）、Three.js、生成艺术（generative art）或混合作品。脱离项目标题和品牌后，候选的可见主体、材料、场所、尺度、关系或情绪仍应与节拍直接相关。
 
+当某个节拍确实需要连续滚动导演时，再补充 `cinematic editorial scrollytelling`、`immersive editorial website`、`scroll-driven storytelling`、`scroll-scrubbed parallax`、`multi-plane parallax`、`layered scroll composition`、`scroll-driven kinetic typography`、`split-text reveal`、`per-character stagger` 或具体实现栈等机制检索词。这些词不替代节拍关键词；候选仍先按语义匹配与主视觉承载力筛选。
+
 为每个候选建立矩阵，记录：
 
 - 所服务的节拍、关键词组和语义匹配证据；
