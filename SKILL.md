@@ -1,6 +1,6 @@
 ---
 name: craft-frontend
-description: 为网页前端建立贴合任务简报的视觉方向，并进行生产级构建、改进、审查或有目的的动效设计。适用于落地页、作品集、仪表盘、应用界面、组件、网页演讲伴侣、视觉文章、滚动叙事和动态解释图解；也适用于用户要求对现有前端代码进行设计、样式调整、重新设计、润色、评析、审查、添加动效，或将源材料转化为分幕视觉叙事的任务。除非请求明确授权改变，否则保留目标界面的既有技术栈、品牌、行为和设计系统。只处理网页视觉与交互，不用于纯后端工作、原生应用、幻灯片、托管、URL 克隆或纯研究任务。
+description: 为网页前端建立贴合任务简报的视觉方向，并进行生产级构建、改进、审查、动效与配乐设计。对落地页、作品集、品牌与活动页面、网页演讲伴侣、视觉文章、滚动叙事和动态解释图解等创作型构建与大幅改进，默认让视觉、动效和配乐共同承担表达。也适用于仪表盘、应用界面、组件及现有前端代码的设计、样式调整、润色、评析、审查或局部动效任务。除非请求明确授权改变，否则保留目标界面的既有技术栈、品牌、行为和设计系统。只处理网页视觉与交互，不用于纯后端工作、原生应用、幻灯片、托管、URL 克隆或纯研究任务。
 ---
 
 # Craft Frontend
@@ -15,23 +15,31 @@ description: 为网页前端建立贴合任务简报的视觉方向，并进行�
 - **Improve（改进）**——在保留必要行为的前提下修改现有界面。
 - **Review（审查）**——报告有证据支撑的发现；除非用户同时要求实施，否则不修改文件。
 
-再添加会实质改变工作方式的修饰项：
+先判断是否属于创作型作品。落地页、作品集、品牌与活动页面、网页演讲伴侣、视觉文章、滚动叙事、动态解释图解及经授权的大幅改版，默认同时启用三个制作层：
+
+- **Visual（视觉）**——先确定能承担主题的主视觉、视觉系统或动态视觉事件。
+- **Motion（动效）**——从任务含义中确定动效职责，让它承担关系、状态、空间、过程或情绪的变化。
+- **Soundtrack（配乐）**——根据源内容和情绪段落设计不干扰主体信息的无歌词音乐。
+
+其他任务再按请求添加会实质改变工作方式的修饰项：
 
 - **Motion（动效）**——添加或修改交互与动画。
-- **Visual story（视觉叙事）**——当界面的主要任务是把源材料转化为分幕叙事时使用。让视觉作品与视觉效果承担核心叙事，文字只作支持；再按叙事需要选择静态构图、程序变化、交互或动效，视差仅是动效中的一个可选分支。普通落地页、产品界面或单纯动效任务不使用此修饰项，除非用户明确要求这种叙事转化。
+- **Soundtrack（配乐）**——为现有页面新增、替换或调整音乐层。
+- **Visual story（视觉叙事）**——当界面的主要任务是把源材料转化为分幕叙事时使用。让视觉作品与动效承担核心叙事，文字只作支持；视差仅是动效中的一个可选分支。普通产品界面或单纯动效任务不使用此修饰项，除非用户明确要求这种叙事转化。
 
 只读取当前路线需要的参考文件：
 
 | 主要路线 | 读取 |
 | --- | --- |
-| Build | `references/direction.md`, `references/implementation.md` |
-| Improve | `references/evaluation.md`, `references/implementation.md`；改变视觉方向时再读 `direction.md` |
-| Review | `references/evaluation.md`；审查视觉方向时再读 `direction.md` |
+| Build | `references/direction.md`, `references/implementation.md`, `references/evaluation.md`；创作型作品同时读 `references/motion.md`, `references/soundtrack.md` |
+| Improve | `references/evaluation.md`, `references/implementation.md`；创作型大幅改版再读 `references/direction.md`, `references/motion.md`, `references/soundtrack.md` |
+| Review | `references/evaluation.md`；审查代码或运行实现时读 `references/implementation.md`；再按审查对象读 `references/direction.md`, `references/motion.md` 或 `references/soundtrack.md` |
 
 | 修饰项 | 另读 |
 | --- | --- |
-| Motion | `references/motion.md`；编辑代码时再读 `implementation.md` |
-| Visual story | `references/visual-story.md`, `references/motion.md` |
+| Motion | `references/motion.md`；编辑代码时再读 `references/implementation.md` |
+| Soundtrack | `references/soundtrack.md`；编辑代码时再读 `references/implementation.md` |
+| Visual story | `references/visual-story.md`, `references/motion.md`, `references/soundtrack.md` |
 
 仅在维护本 Skill 时读取 `references/sources.md`。
 
@@ -41,9 +49,10 @@ description: 为网页前端建立贴合任务简报的视觉方向，并进行�
 
 1. **Route（定路）**——确认意图、目标界面、授权范围，以及是否允许修改文件。
 2. **Inspect（检查）**——阅读任务简报、源内容、目标代码、可用资产、依赖、设计令牌、组件和代表性状态。
-3. **Decide（决策）**——选择最小且连贯的方向或干预。方向改变时在内部形成“设计判断”；只有在确认能显著改善结果时才向用户展示。
-4. **Execute（执行）**——构建或改进目标界面。Review 路线报告发现后停止；Motion 路线先确认动效具有明确用途。
+3. **Decide（决策）**——选择最小且连贯的方向或干预。创作型作品在这一阶段统一视觉、动效和配乐的表达职责。方向改变时在内部形成“设计判断”；只有在确认能显著改善结果时才向用户展示。
+4. **Execute（执行）**——构建或改进目标界面。Review 路线报告发现后停止；动效与配乐在生产阶段完成设计、实现和必要验证。
 5. **Verify（验证）**——测试相关行为、响应式布局、键盘操作、焦点、内容极值和运行结果。发现具体缺陷后返回执行阶段修正。
+6. **Audit package（审核交付包）**——完稿后由未参与制作的独立子代理执行 `references/evaluation.md` 中的最终审核。主代理按证据清理后，只做一次客观的包体完整性检查。
 
 ## 确定方向
 
