@@ -1,84 +1,84 @@
 ---
 name: craft-frontend
-description: Build, improve, review, or add purposeful motion to web frontend interfaces with brief-specific visual direction and production-level implementation. Use for landing pages, portfolios, dashboards, app surfaces, components, web-based presentation companions, visual essays, scrollytelling, animated explanatory diagrams, and existing frontend code when the user asks to design, style, redesign, polish, critique, audit, animate, or turn source material into a staged visual narrative. Preserve the target surface's existing stack, brand, behavior, and design system unless the request authorizes a change. Scope this skill to web visual and interaction work rather than backend-only work, native applications, slide decks, hosting, URL cloning, or research-only tasks.
+description: 为网页前端建立贴合任务简报的视觉方向，并进行生产级构建、改进、审查或有目的的动效设计。适用于落地页、作品集、仪表盘、应用界面、组件、网页演讲伴侣、视觉文章、滚动叙事和动态解释图解；也适用于用户要求对现有前端代码进行设计、样式调整、重新设计、润色、评析、审查、添加动效，或将源材料转化为分幕视觉叙事的任务。除非请求明确授权改变，否则保留目标界面的既有技术栈、品牌、行为和设计系统。只处理网页视觉与交互，不用于纯后端工作、原生应用、幻灯片、托管、URL 克隆或纯研究任务。
 ---
 
 # Craft Frontend
 
-Create web interfaces whose direction follows the brief and whose implementation survives real use.
+创建既贴合任务简报、又经得起真实使用的网页界面。
 
-## Route the task
+## 判断任务路线
 
-Choose one primary intent:
+选择一个主要意图：
 
-- **Build** — create a new page, surface, or component.
-- **Improve** — change an existing interface while preserving its required behavior.
-- **Review** — report evidence-backed findings without changing files unless the user also asks for implementation.
+- **Build（构建）**——创建新页面、界面或组件。
+- **Improve（改进）**——在保留必要行为的前提下修改现有界面。
+- **Review（审查）**——报告有证据支撑的发现；除非用户同时要求实施，否则不修改文件。
 
-Add the modifiers that materially change the work:
+再添加会实质改变工作方式的修饰项：
 
-- **Motion** — add or revise interaction and animation.
-- **Visual story** — use when the surface's primary job is to transform source material into a staged narrative sequence led by diagrams, imagery, and motion—for example, a live-talk companion, scrollytelling page, campaign narrative, or interactive visual essay. Do not add this modifier to an ordinary landing page, product surface, or motion-only task unless the user asks for that narrative transformation.
+- **Motion（动效）**——添加或修改交互与动画。
+- **Visual story（视觉叙事）**——当界面的主要任务是把源材料转化为分幕叙事时使用。让视觉作品与视觉效果承担核心叙事，文字只作支持；再按叙事需要选择静态构图、程序变化、交互或动效，视差仅是动效中的一个可选分支。普通落地页、产品界面或单纯动效任务不使用此修饰项，除非用户明确要求这种叙事转化。
 
-Read only the references needed for the route:
+只读取当前路线需要的参考文件：
 
-| Primary route | Read |
+| 主要路线 | 读取 |
 | --- | --- |
 | Build | `references/direction.md`, `references/implementation.md` |
-| Improve | `references/evaluation.md`, `references/implementation.md`; add `direction.md` when changing visual direction |
-| Review | `references/evaluation.md`; add `direction.md` for visual-direction critique |
+| Improve | `references/evaluation.md`, `references/implementation.md`；改变视觉方向时再读 `direction.md` |
+| Review | `references/evaluation.md`；审查视觉方向时再读 `direction.md` |
 
-| Modifier | Also read |
+| 修饰项 | 另读 |
 | --- | --- |
-| Motion | `references/motion.md`; add `implementation.md` when editing code |
+| Motion | `references/motion.md`；编辑代码时再读 `implementation.md` |
 | Visual story | `references/visual-story.md`, `references/motion.md` |
 
-Read `references/sources.md` only when maintaining this skill.
+仅在维护本 Skill 时读取 `references/sources.md`。
 
-## Work through a conditional loop
+## 按条件闭环推进
 
-Use this shared skeleton, skipping work that does not serve the selected route:
+使用以下共用骨架，跳过对当前路线无帮助的工作：
 
-1. **Route** — identify the intent, target surface, allowed scope, and whether files may change.
-2. **Inspect** — read the brief, source content, target code, available assets, dependencies, tokens, components, and representative states.
-3. **Decide** — choose the smallest coherent direction or intervention. Form a Design Read internally when direction changes; expose it only when confirmation would materially improve the result.
-4. **Execute** — build or improve the requested surface. For Review, report findings and stop. For Motion, first establish that movement has a useful purpose.
-5. **Verify** — test the relevant behavior, responsive layouts, keyboard use, focus, content extremes, and runtime output. When verification finds a concrete defect, return to Execute and correct it.
+1. **Route（定路）**——确认意图、目标界面、授权范围，以及是否允许修改文件。
+2. **Inspect（检查）**——阅读任务简报、源内容、目标代码、可用资产、依赖、设计令牌、组件和代表性状态。
+3. **Decide（决策）**——选择最小且连贯的方向或干预。方向改变时在内部形成“设计判断”；只有在确认能显著改善结果时才向用户展示。
+4. **Execute（执行）**——构建或改进目标界面。Review 路线报告发现后停止；Motion 路线先确认动效具有明确用途。
+5. **Verify（验证）**——测试相关行为、响应式布局、键盘操作、焦点、内容极值和运行结果。发现具体缺陷后返回执行阶段修正。
 
-## Resolve direction
+## 确定方向
 
-Resolve aesthetic and product choices in this order:
+按以下顺序解决审美与产品选择：
 
-1. User's explicit request.
-2. Confirmed task objective and real source content.
-3. Brand and design system of the target surface.
-4. Local page and component conventions.
-5. Design heuristics.
+1. 用户的明确要求。
+2. 已确认的任务目标与真实源内容。
+3. 目标界面的品牌和设计系统。
+4. 当前页面与组件约定。
+5. 设计启发式原则。
 
-Judge Brand versus Product register per target surface. Let the primary register drive hierarchy and interaction; let the secondary register influence expression without displacing the surface's job.
+按具体界面判断以 Brand（品牌表达）还是 Product（产品使用）为主。主要语域决定层级与交互，次要语域只影响表现方式，不得挤占界面的核心任务。
 
-## Maintain delivery invariants
+## 守住交付底线
 
-Treat these as parallel to visual direction:
+以下要求与视觉方向并行成立：
 
-- Preserve required behavior, information architecture, business meaning, test selectors, and content truth within the authorized scope.
-- Reuse existing tokens, components, libraries, and conventions when they support the task. Introduce a dependency or deviation only when it creates a clear capability or quality gain.
-- Use semantic HTML, visible keyboard focus, accessible names and labels, sufficient contrast, browser zoom support, and understandable async or error feedback.
-- Complete the states relevant to the interaction: default, hover, focus, active, loading, disabled, empty, error, and success.
-- Make representative desktop and mobile layouts reflow without unintended overflow, occlusion, or truncation; size controls for touch where appropriate.
-- Keep motion purposeful, interruptible, performance-aware, and paired with a reduced-motion experience.
-- Use real content and test representative short, long, empty, and localized strings when relevant.
-- Run the project or open the result in a browser. State any verification that the environment could not perform.
-- Use only assets, fonts, libraries, and code that the project is allowed to use.
+- 在授权范围内保留必要行为、信息架构、业务含义、测试选择器和内容事实。
+- 既有令牌、组件、库和约定能服务任务时继续复用。只有依赖或偏离能带来明确能力或质量收益时才引入。
+- 使用语义化 HTML、清晰可见的键盘焦点、无障碍名称与标签、足够对比度、浏览器缩放支持，以及易懂的异步或错误反馈。
+- 补全交互需要的状态：默认、悬停、焦点、激活、加载、禁用、空、错误和成功。
+- 让代表性的桌面端与移动端布局自然重排，不得出现意外溢出、遮挡或截断；需要触控时保证控件尺寸合适。
+- 让动效有目的、可中断、兼顾性能，并提供减少动态效果的体验。
+- 使用真实内容；相关时测试有代表性的短、长、空和本地化字符串。
+- 运行项目或在浏览器中打开结果，并说明环境无法完成的验证。
+- 只使用项目获准使用的资产、字体、库和代码。
 
-## Keep the direction specific
+## 让方向具体
 
-Ground the interface in one concrete subject, audience, and job. Derive structure, vocabulary, palette, type, imagery, and motion from evidence in that world.
+把界面扎根于一个具体主题、受众和任务，从这个世界的证据推导结构、用词、色彩、字体、图像和动效。
 
-Use expression, motion, and density spectra as shared vocabulary only when they help a new direction or major redesign. For a local change, choose only the relevant axis.
+只有在建立新方向或大幅改版时，才用表达、动效和密度光谱作为共用语言；局部修改只选真正相关的维度。
 
-Choose **zero or one** signature element. Add one only when the subject, content, or task supplies a convincing reason; let the rest of the interface support it quietly.
+选择 **零个或一个** 标志性元素。只有主题、内容或任务提供充分理由时才加入，其余界面应安静地支持它。
 
-## Deliver proportionally
+## 按任务比例交付
 
-For implementation, return working files plus the verification performed. For Review, group findings by severity and location, distinguish observed defects from suggestions, and include a concrete correction for each actionable issue.
+实施任务交付可运行文件和已完成的验证。Review 任务按严重程度和位置组织发现，区分观察到的缺陷与建议，并为每个可执行问题给出具体修正方式。

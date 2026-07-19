@@ -1,33 +1,41 @@
-# Production Implementation
+# 生产级实现
 
-Use this reference whenever changing frontend files.
+修改前端文件时使用本参考。
 
-## Inspect the project first
+## 先检查项目
 
-Read the relevant package manifest, entry point, theme or token source, global styles, and one representative component. Identify the framework, styling approach, component library, routing, state pattern, tests, and build commands.
+读取相关包清单、入口、主题或令牌来源、全局样式和一个代表性组件。确认框架、样式方案、组件库、路由、状态模式、测试和构建命令。
 
-For a new standalone artifact, choose the simplest stack that can express the required behavior. Prefer platform capabilities and existing dependencies before adding packages.
+创建独立新作品时，选择足以表达所需行为的最简单技术栈。优先使用平台能力和既有依赖，再考虑新增包。
 
-## Preserve and integrate
+## 保留并融入现有系统
 
-- Reuse tokens and components when they fit the target behavior.
-- Keep public behavior, information architecture, data semantics, routes, and test selectors stable unless the request authorizes changes.
-- Isolate intentional deviations and express them through maintainable tokens or components.
-- Keep static content server-renderable or plain HTML when interactivity is unnecessary; isolate interactive code to the smallest useful surface.
+- 令牌和组件符合目标行为时继续复用。
+- 除非请求授权改变，否则保持公开行为、信息架构、数据语义、路由和测试选择器稳定。
+- 隔离有意偏离，并通过可维护的令牌或组件表达。
+- 不需要交互时，让静态内容可由服务端渲染或使用纯 HTML；把交互代码限制在最小有效范围。
 
-## Implement structure and states
+## 实现结构与状态
 
-- Use semantic landmarks, headings, lists, tables, links, buttons, labels, and form controls.
-- Make every interactive element reachable and understandable with keyboard and assistive technology.
-- Implement the relevant state cycle and recovery path, including pending work and failure.
-- Use responsive CSS layout before JavaScript measurement. Let text wrap, reflow, truncate, or expand according to its meaning.
-- Give media dimensions or aspect ratios, meaningful alternatives, and suitable loading priority.
-- Keep styling specificity predictable and centralize repeated values as tokens.
+- 使用语义化地标、标题、列表、表格、链接、按钮、标签和表单控件。
+- 让每个交互元素都能通过键盘和辅助技术到达并理解。
+- 实现相关状态循环与恢复路径，包括等待和失败。
+- 优先使用响应式 CSS 布局，再考虑 JavaScript 测量。根据文本含义决定换行、重排、截断或展开。
+- 为媒体设置尺寸或宽高比、有意义的替代内容和合适的加载优先级。
+- 保持 CSS 选择器优先级可预测，并把重复值集中为设计令牌。
 
-## Use dependencies deliberately
+## 有意识地使用依赖
 
-Inspect the manifest before importing a package. Add a dependency only when it provides a capability that would be expensive or fragile to reproduce, and use its established API rather than recreating it. Keep assets and fonts licensed and load them without blocking the primary content.
+导入包前先检查清单。只有依赖提供了自行重建会昂贵或脆弱的能力时才添加，并使用其成熟 API，不重复造轮子。确保资产与字体获准使用，且加载过程不阻塞主要内容。
 
-## Verify in the runtime
+## 生产视觉作品
 
-Run the relevant formatter, typecheck, tests, and build when available. Open the result in a browser and inspect at representative wide and narrow viewports. Exercise the primary action, keyboard path, focus order, and relevant states. Check the console and correct visible overflow, layering, crop, and content issues.
+视觉作品进入成品后必须来源可追踪、显示稳定且成本受控，因此按采用方式落实资产与渲染器：
+
+- 将生产用资产或渲染器保存到本地项目中，记录具体来源、版本和采用方式：`reuse-source`（复用媒体、SVG 或源资产）、`run-live`（集成或改造实时渲染器）、`render-to-asset`（渲染为图像、序列帧或视频）或 `reference-only`（只作参考，不进入成品）。
+- 对图片使用合适的 `picture`、`srcset` 和 `sizes`；对实时渲染明确分辨率、设备像素比和性能预算。通过美术裁切或 `object-position` 保持焦点，为移动图层预留 overscan（超出画面的安全边缘），并在主显示设备和 4K 下核对实际画质。
+- 只预载开场必需视觉，延迟加载后续场景。`render-to-asset` 要验证清晰度、透明通道、循环接缝和编码质量；`run-live` 要提供可复现的随机种子、静态或降级后备，并在离屏或文档隐藏时暂停。
+
+## 在运行环境中验证
+
+条件允许时运行相关格式化、类型检查、测试和构建。用浏览器打开结果，在代表性的宽屏与窄屏下检查。走通主要操作、键盘路径、焦点顺序和相关状态；检查控制台，并修正可见的溢出、层叠、裁切和内容问题。

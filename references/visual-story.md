@@ -1,84 +1,103 @@
-# Visual Storytelling
+# 视觉叙事
 
-Use this reference for a web surface whose primary job is to stage a narrative: a live-talk companion, scrollytelling page, campaign story, or interactive visual essay. Load it when the audience should feel relationships, changes, and stakes through the screen rather than read the source material there.
+当网页的主要任务是编排叙事时使用本参考，例如现场演讲伴侣、滚动叙事页面、活动故事或交互式视觉文章。目标是让观众通过画面感受关系、变化和利害，而不是在屏幕上阅读原稿。
 
-## Build a scene spine
+## 建立叙事骨架
 
-Read the complete source and the user's visual requirements before choosing a structure. Decide whether the page accompanies a speaker or must explain itself.
+先读完源材料和用户的视觉要求，再选择结构；明确页面是配合讲者，还是必须独立讲清内容。
 
-- For a live companion, limit each scene's prose to one large headline and at most one short subtitle. Put no explanations, examples, qualifications, or supporting detail from the speech on screen. Show a number, diagram label, or control only when the visual would otherwise be unintelligible or unusable; these do not enlarge the prose budget.
-- For a standalone story, retain enough context, evidence, and navigation for independent understanding while keeping visuals in the leading role.
+- 现场演讲伴侣的每个场景只保留一个大标题，最多再加一个短副标题。解释、例子、限定条件和演讲细节留在讲稿中。只有缺少数字、图解标签或控件会让视觉无法理解或使用时才显示它们；这些元素不增加文字预算。
+- 独立叙事页面应保留足够的上下文、证据和导航以便独立理解，但仍由视觉主导。
 
-Turn the source into an ordered set of narrative beats. For every beat, identify:
+把源材料拆成有顺序的叙事节拍。每个实质节拍先确定主要视觉载体或视觉事件，再决定文字和转场：
 
-- the claim, change, feeling, or decision it must communicate;
-- three to eight search keywords covering the subject, material world, visual verb, relationship, and intended emotional effect;
-- an original diagram, image, or spatial composition that can carry the meaning;
-- the copy, number, or control that must remain visible;
-- the transition into or out of the beat;
-- any action the audience should take.
+- 要传达的主张、变化、感受或决定；
+- 三至八个搜索关键词，覆盖主题、物质世界、视觉动词、关系和预期情绪；
+- 能承载含义的主要视觉载体或视觉事件，可选获准复用的既有视觉作品、程序生成视觉、原创图解、数据可视化、空间构图、排版事件、图像或其他机制；
+- 必须留在画面上的文案、数字或控件；
+- 进入或离开该节拍的转场；
+- 观众应采取的行动。
 
-Keep the beats traceable to the source. Preserve factual meaning, necessary qualifications, and the intended action while moving detailed prose off the presentation surface. Let the source and viewing condition determine the number and size of scenes.
+让每个节拍都可追溯到源材料。在把详细文字移出展示画面的同时，保留事实含义、必要限定和预期行动。场景数量与尺寸由源内容和观看条件决定。
 
-## Research visual mechanisms in parallel
+## 以视觉作品为主轴开展并行研究
 
-Use subagents to research outside inspiration for the narrative beats. Divide the beats into disjoint groups so every beat receives keyword extraction and research while the searches run in parallel.
+外部研究服务于主要视觉载体，而不是先找一种效果再套版。把节拍分成互不重叠的组，交给并行子代理；确保每个节拍都获得关键词提取和外部研究，且只分配一次。
 
-Ask each research subagent to search well-regarded open-source frontend design, open-source visual-element and interaction projects, creative-coding communities, data-visualization work, and new-media art.
+要求研究子代理共同覆盖五类来源：广受好评的开源前端设计、开源视觉元素或交互项目、创意编程（creative coding）社区、数据可视化作品和新媒体艺术。每类都返回相关结果；确无充分候选时明确记录 `no-hit`。
 
-Because general inspiration searches can miss strong depth-based mechanisms, run an additional focused search for each assigned beat for well-regarded parallax-scrolling and scroll-linked motion. Combine the beat's keyword cluster with relevant terms such as `parallax`, `layered scroll`, `scroll-linked animation`, `sticky scrollytelling`, or `scroll depth`. Treat parallax as a mechanism lens within the five source families, not as a sixth source family. Return the strongest relevant, well-regarded candidate. Record an explicit no-fit when neither parallax scrolling nor another scroll-linked mechanism would clarify the beat, or an explicit no-hit when the search yields no sufficiently supported candidate.
+先按节拍关键词寻找画面或官方输出本身就能承载该段语义的既有视觉作品，而不是只按技术名称搜索。候选可为栅格图、插画、纹理、SVG、Canvas、WebGL、着色器（shader）、Three.js、生成艺术（generative art）或混合作品。脱离项目标题和品牌后，候选的可见主体、材料、场所、尺度、关系或情绪仍应与节拍直接相关。
 
-For every candidate, return:
+为每个候选建立矩阵，记录：
 
-- the narrative beat and keyword cluster it serves;
-- the primary repository and official demonstration;
-- license and version or commit when available;
-- concrete evidence of community or institutional recognition;
-- the reusable visual or interaction mechanism;
-- how that mechanism could be translated into the brief's own material world;
-- the reason to adopt or reject it.
+- 所服务的节拍、关键词组和语义匹配证据；
+- 视觉作品类型及官方输出或演示证据；
+- 社区或机构认可证据；
+- 主仓或具体来源、版本或 commit；
+- 采用方式；
+- 代码许可证；
+- 内嵌资产、数据与字体的许可证；
+- 作品或输出使用条款；
+- 采纳或拒绝理由。
 
-Synthesize the research before implementation. Choose a small set of complementary mechanisms that serve distinct narrative jobs and reinforce one coherent visual language. Recreate the mechanisms for the brief rather than reproducing recognizable compositions, signature appearances, assets, or code. Keep the adopted and rejected sources in a project-level inspiration record.
+综合研究后，选择少量互补的视觉作品与机制，让它们承担不同叙事任务并形成统一视觉语言。把采用和拒绝的来源都保存在项目级灵感记录中。
 
-## Find a native visual language
+## 选择采用方式并承担场景编排责任
 
-Extract materials, artifacts, processes, gestures, and spatial relationships from the subject. Use the research to expand how those native elements can behave, not to replace them with an unrelated trend.
+只有记录的条款允许时，才让既有开源视觉产物进入成品。代码开源不自动代表其内嵌图片、数据、字体或生成输出可复用，因此分别核对并记录。
 
-If a signature element earns that role, use it as a motif that can change role across beats. Define what remains semantically constant—such as a color meaning connection, a material meaning verification, or a direction meaning flow—then let its form and motion evolve with the story. If no signature element is warranted, build continuity through recurring structure, materials, and motion rules.
+- `reuse-source`：直接复用并按需修改媒体、SVG 或源资产。
+- `run-live`：把 Canvas、WebGL、shader、Three.js 或其他渲染器集成或改造后实时运行。
+- `render-to-asset`：把代码输出渲染为本地图像、序列帧或视频后使用。
+- `reference-only`：只参考，不让原资产、代码或输出进入成品。
 
-Build recognition through that continuity. Let supporting elements reinforce the shared visual grammar so the full sequence feels authored rather than assembled from separate effects.
+原创责任落在场景编排层。无论底层作品是否直接复用，都要针对当前任务简报重新设计关键词映射、构图、尺度、节奏、裁切、色彩关系和标题位置；只有采用分层或动态机制时，才进一步定义前景、主体、中景和背景的语义职责及动效关系。让采用的视觉作品在新叙事中承担清楚而必要的职责。
 
-## Direct the sequence visually
+## 找到主题原生的视觉语言
 
-Arrange an opening thesis, meaningful progression, a turn or contrast, and a resolved next step when the source supports them.
+从主题中提取材料、器物、过程、手势和空间关系。用研究扩展这些原生元素的行为，而不是用无关潮流替换它们。
 
-Lead every substantive beat with an original diagram, image, or spatial composition. Use title-only scenes as deliberate moments of pause. When a beat contains a relationship, process, state change, or emotional turn, express it through an authored motion sequence.
+若某个标志性元素足以成为母题，让它跨节拍改变角色。先定义语义上保持不变的部分，例如某种颜色代表连接、某种材料代表验证、某个方向代表流动，再让形式和动效随故事演化。没有必要设置标志性元素时，用重复的结构、材料和动效规则建立连续性。
 
-Translate source verbs into visual behavior: gather, connect, hand off, filter, reveal, compress, split, resist, release, or transform. Coordinate scale, path, density, contrast, material, depth, rhythm, and timing so the audience can feel the change before reading its labels.
+让辅助元素强化共同视觉语法，使完整序列像同一作者的作品，而不是多个孤立效果的拼接。
 
-Give each beat a dominant visual event while varying stillness, density, contrast, material, and scale across the sequence. Keep a complete and intentional first frame, then let motion reveal causality and transformation. Apply `motion.md` for movement decisions and `implementation.md` for production integration.
+## 以视觉效果导演每个节拍
 
-For procedural visuals, make results reproducible enough to debug and compare when practical. Stop continuous work offscreen, pause it while the document is hidden, and bound rendering cost to the value of the effect.
+视觉作品与视觉效果是主要叙事层；标题、副标题和控件只支持它们。先为每个实质节拍选择一个主导视觉事件，再决定是否需要动效。
 
-## Recompose across displays
+源内容支持时，安排陈述主旨的开场、有意义的推进、转折或对照，以及明确的下一步。
 
-Design for the primary viewing condition, including distance, scale, and pacing for a live presentation.
+每个实质节拍都由主要视觉载体或视觉事件承担叙事；只含标题的场景可作为有意停顿。关系、过程、状态变化或情绪转折应通过专门编排的视觉变化表达，而不是依赖解释文字。
 
-Recompose spatial relationships for narrow screens instead of merely shrinking or mechanically cropping the desktop scene. Preserve real controls, content order, focal relationships, and an understandable completed composition.
+把原稿动词转为视觉行为：汇聚、连接、交接、过滤、揭示、压缩、分裂、抵抗、释放或转化。协调尺度、路径、密度、对比、材质、深度、节奏和时机，让观众在阅读标签前先感受到变化。
 
-## Verify the story
+让每个节拍有一个主导视觉事件，并在序列中改变静止程度、密度、对比、材质和尺度。先确保首帧完整且有意图，再让动效揭示因果与转化。程序视觉应具备可复现的首帧与完成态；连续调度、离屏暂停和性能预算遵循 `motion.md` 与 `implementation.md`。
 
-Check that:
+### 视差：滚动与深度分支
 
-- every retained beat maps back to the source and has a clear completed state;
-- for a live companion, no scene exceeds one headline plus one short subtitle; any number, diagram label, or control passes the essentiality test above;
-- every retained beat has a traceable three-to-eight-keyword cluster and is assigned exactly once across the subagent research groups dispatched in parallel;
-- the research matrix covers every beat; for each beat, it records the strongest relevant, well-regarded parallax-scrolling or scroll-linked-motion candidate, an explicit no-fit, or an explicit no-hit; collectively, it covers all five source families with a relevant result or explicit no-hit where needed;
-- every shortlisted candidate records its primary repository, official demonstration, license, recognition evidence, reusable mechanism, brief-specific translation, and adopt-or-reject decision;
-- every substantive beat is visually led, and motion carries relationships or change instead of serving as unrelated decoration;
-- the sequence remains coherent at first paint, without motion, and with reduced motion;
-- entering, scrolling to, or jumping directly to a scene reveals the intended scene without stale neighboring state;
-- the primary display and a representative narrow display preserve hierarchy, focal relationships, visual impact, and legibility;
-- interactive actions remain semantic, keyboard operable, and visibly confirmed;
-- external inspiration is recorded and translated into mechanisms rather than recognizable imitation;
-- decorative or procedural work pauses when it is not contributing.
+视差只是视觉动效中的一个可选分支，不是视觉研究主轴，也不要求每个节拍使用。只有入围视觉作品适合通过滚动深度表达空间、注意力或叙事关系时，才另行寻找或设计 `parallax`、`layered scroll`、`scroll-linked animation`、`sticky scrollytelling` 或 `scroll depth` 机制。
+
+把视觉作品来源与动效机制来源分开记录，两者可以来自不同项目。采用前说明前景、主体、中景和背景各自的语义职责，以及滚动如何产生揭示、接近、分离、遮挡或转化；不得只给现有版式叠加不同速度的位移。具体行为遵循 `motion.md`，生产集成遵循 `implementation.md`。
+
+## 跨显示设备重构
+
+先为主要观看条件设计，现场演讲要考虑观看距离、显示尺度和推进节奏。
+
+窄屏应重新组织空间关系，不要只缩小或机械裁切桌面场景。保留真实控件、内容顺序、焦点关系和可理解的完成态。
+
+## 验证叙事
+
+确认：
+
+- 每个保留的节拍都可追溯到源材料，并有明确完成态；
+- 现场演讲伴侣的任一场景都不超过一个大标题加一个短副标题，数字、图解标签和控件均通过必要性检查；
+- 每个节拍都有可追溯的三至八个关键词，并在并行子代理研究分组中只分配一次；
+- 每个实质节拍都先选择了主要视觉载体或视觉事件，视觉效果承担核心叙事，文字只作支持；
+- 研究矩阵覆盖每个节拍；五类来源整体都有相关结果或明确 `no-hit`，视差没有被当作独立来源类别或逐段硬性任务；
+- 每个入围候选都记录视觉作品类型、官方输出证据、语义匹配、认可证据、具体来源与版本、采用方式、代码许可证、内嵌资产／数据／字体许可证、作品或输出条款，以及采纳或拒绝决定；
+- 直接复用、实时运行或渲染输出均有条款依据，且场景编排针对当前任务简报重新设计；
+- 动效承载关系或变化，而不是无关装饰；序列在首次渲染、动效未运行以及减少动态效果模式下仍保持连贯；
+- 进入、滚动到或直接跳转场景时显示正确状态，不残留相邻场景状态；
+- 主要显示设备和代表性窄屏都保留层级、焦点关系、视觉冲击与可读性；
+- 交互保持语义化、支持键盘并提供可见确认；离屏装饰或程序工作会暂停；
+- 只有采用视差的场景才需额外验证：视觉作品来源与动效机制来源分开记录；可确定性复现 `0%`、`25%`、`50%`、`75%`、`100%` 进度；在任务指定的主要观看尺寸、一个代表性宽屏或高像素密度显示环境，以及代表性窄屏下无露缝、错误裁切或焦点丢失；验证反向滚动和停止状态，并在产品支持直接链接、URL 锚点（hash）或快速跳转时走通这些进入路径；减少动态效果时呈现完整静态构图。

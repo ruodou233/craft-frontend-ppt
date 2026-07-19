@@ -1,48 +1,48 @@
-# Visual Direction
+# 视觉方向
 
-Use this reference for a new surface or a meaningful change in visual direction.
+创建新界面或实质改变视觉方向时使用本参考。
 
-## Form the Design Read
+## 形成设计判断
 
-Read the brief before choosing an aesthetic. Identify:
+先读任务简报，再选择审美。确认：
 
-- the concrete subject and its physical or cultural world;
-- the audience and the decision or action they need to take;
-- the surface's single job;
-- existing brand assets, references, voice, and constraints;
-- the real content that should shape the composition.
+- 具体主题及其物质或文化世界；
+- 受众，以及他们需要作出的决定或行动；
+- 界面的唯一核心任务；
+- 既有品牌资产、参考、语气和约束；
+- 应当塑造构图的真实内容。
 
-Treat the result as an internal decision record. Surface it when the brief is ambiguous, the direction changes substantially, or confirmation would avoid a costly wrong turn.
+把结果作为内部决策记录。任务简报含糊、方向发生重大变化，或用户确认能避免高成本误判时，再将其展示出来。
 
-## Choose the register per surface
+## 按界面选择语域
 
-- Let **Brand** lead when design communicates identity: marketing, campaigns, portfolios, editorial stories, and event pages.
-- Let **Product** lead when design supports repeated work: tools, dashboards, settings, forms, data views, and app shells.
-- When both apply, state which one leads for this surface. Preserve brand signals without weakening task clarity or density.
+- 设计负责传达身份时，让 **Brand（品牌表达）** 主导：营销、活动、作品集、编辑故事和事件页面。
+- 设计负责支持重复工作时，让 **Product（产品使用）** 主导：工具、仪表盘、设置、表单、数据视图和应用外壳。
+- 两者并存时，明确当前界面以哪一方为主。在不削弱任务清晰度或信息密度的前提下保留品牌信号。
 
-## Set only useful spectra
+## 只设有用的光谱
 
-For greenfield work or a major redesign, describe the needed position on these spectra in words and tie each choice to evidence:
+从零构建或大幅改版时，用文字描述以下光谱上的目标位置，并为每个选择提供依据：
 
-- **Expression:** quiet and systematic ↔ bold and art-directed.
-- **Motion:** still and immediate ↔ cinematic and atmospheric.
-- **Density:** spacious and editorial ↔ compact and operational.
+- **表达：** 安静、系统化 ↔ 大胆、具有艺术指导感。
+- **动效：** 静止、直接 ↔ 电影化、有氛围。
+- **密度：** 疏朗、编辑式 ↔ 紧凑、操作式。
 
-For a local change, use only the axis that affects the work. Avoid numeric dials and preset genre mappings.
+局部修改只使用会影响工作的维度。不要使用数值旋钮或预设风格映射。
 
-## Build a coherent direction
+## 建立连贯方向
 
-- Make the opening composition state the page's thesis through the subject's most characteristic material, phrase, artifact, action, or image.
-- Let typography carry a deliberate voice. Choose compatible display, body, and utility roles from available, licensed type; make Chinese and Latin text feel intentionally paired.
-- Use color as a strategy—restrained, committed, full-palette, or drenched—before choosing swatches. Derive neutrals and accents from the same identity.
-- Make structure encode meaning. Use numbering, dividers, labels, columns, and repetition when the content actually contains sequence, category, hierarchy, or rhythm.
-- Compose contrast through scale, placement, whitespace, density, and material. Repetition should teach the system; variation should reveal content differences.
-- Keep copy specific, active, and consistent. Name actions by what the person controls and explain errors with a next step.
+- 让开场构图通过主题最具代表性的材料、语句、器物、动作或图像，直接陈述页面主旨。
+- 让字体排印承担明确语气。从可用且获准使用的字体中选择协调的展示、正文和功能角色，让中西文搭配显得有意为之。
+- 先确定色彩策略——克制用色、贯彻一套鲜明主色、使用完整色谱，或让色彩大面积浸染——再挑具体色值。让中性色和强调色来自同一身份体系。
+- 让结构编码含义。内容确有顺序、类别、层级或节奏时，使用编号、分隔线、标签、分栏和重复。
+- 用尺度、位置、留白、密度和材质组织对比。重复应帮助用户理解系统规律，变化则揭示内容差异。
+- 文案保持具体、主动且一致。按用户实际控制的对象命名操作，并在错误信息中给出下一步。
 
-## Decide on a signature
+## 决定是否设置标志性元素
 
-Choose zero or one memorable element that embodies the brief: a subject-native interaction, composition, visual artifact, typographic treatment, or motion sequence. Explain the evidence for it internally. If no element earns that role, rely on precise hierarchy and execution.
+选择零个或一个能体现任务简报的记忆点：主题原生的交互、构图、视觉作品、排版处理或动效序列。在内部说明其依据。没有元素足以承担这一角色时，依靠精确层级与执行质量。
 
-## Critique before building
+## 构建前自我批评
 
-Ask whether the direction could be transferred unchanged to another project in the same category. Replace any transferable choice with one grounded more deeply in the subject, audience, or task. Then check that the proposed complexity matches the value it creates.
+判断这套方向能否原封不动移植到同类项目。若能，就把可移植的选择换成更扎根于主题、受众或任务的方案。随后检查所提复杂度是否与其创造的价值匹配。

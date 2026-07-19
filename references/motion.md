@@ -1,43 +1,51 @@
-# Motion Engineering
+# 动效工程
 
-Use this reference only when movement materially supports the task.
+只有动效能实质支持任务时才使用本参考。
 
-## Decide whether movement helps
+## 判断动效是否有帮助
 
-Consider how often the person encounters the interaction. Favor immediacy for frequent actions; reserve more expressive sequences for rare, explanatory, or identity-defining moments.
+考虑用户遇到该交互的频率。高频操作优先直接迅速；更具表现力的序列留给低频、解释性或定义身份的时刻。
 
-Give every animation a purpose:
+让每段动画都有明确用途：
 
-- preserve spatial continuity;
-- explain a state or relationship;
-- confirm an action;
-- soften a meaningful change;
-- demonstrate a feature;
-- add atmosphere where Brand is the leading register.
+- 保持空间连续性；
+- 解释状态或关系；
+- 确认操作；
+- 缓和有意义的变化；
+- 展示功能；
+- 以 Brand（品牌表达）为主时营造氛围。
 
-When the purpose is weak, let layout, color, and type do the work.
+用途不充分时，让布局、色彩和字体承担表达。
 
-## Design the behavior
+## 设计行为
 
-- Match frequency and amplitude to the importance of the event.
-- Use a coordinated sequence when several elements describe one moment; use local feedback for repeated controls.
-- Choose easing by motion type: responsive deceleration for entry and feedback, balanced acceleration for movement already on screen, linear progression for constant motion.
-- Set transform origin at the source of the interaction, such as a popover trigger; keep unanchored dialogs centered.
-- Keep gestures and reversible interactions interruptible so they continue naturally from their current state.
-- Keep content available before enhancement; motion should enrich an already understandable interface.
+- 让频率与幅度匹配事件的重要性。
+- 多个元素共同描述同一时刻时使用协调序列；重复使用的控件采用局部反馈。
+- 按运动类型选择缓动：进入与反馈使用灵敏减速，屏幕内移动使用平衡加减速，恒速运动使用线性进度。
+- 把变换原点设在交互来源，例如弹出层触发器；没有锚点的对话框保持居中。
+- 让手势和可逆交互可被中断，并能从当前状态自然继续。
+- 增强前就让内容可用；动效应丰富一个本来已可理解的界面。
 
-## Implement efficiently
+## 高效实现
 
-Prefer transform and opacity for routine motion. Use clipping, filters, masks, layout animation, or springs when their visual or physical behavior is essential and measured performance is acceptable. Animate explicit properties instead of broad transitions.
+常规动效优先使用 `transform` 和 `opacity`。只有裁切、滤镜、遮罩、布局动画或弹簧的视觉或物理特性不可替代，且实测性能可接受时才使用。明确指定动画属性，不使用宽泛的过渡声明。
 
-Use a motion library for gestures, shared layout, sequencing, or interruption when the project already has one or the behavior warrants it. Keep simple hover, focus, and state transitions in CSS.
+项目已有动效库，或手势、共享布局、编排与中断行为值得引入时使用该库。简单的悬停、焦点和状态过渡留在 CSS 中。
 
-For continuous animation, stop scheduling or drawing while its surface is offscreen or the document is hidden, and resume without a large time jump. Do not keep a global frame loop alive for a settled frame.
+连续动画离屏或文档隐藏时停止调度与绘制，恢复时避免时间大幅跳变。画面稳定后不要继续维持全局逐帧循环。
 
-## Provide a reduced-motion experience
+## 处理视觉作品与视差
 
-Respect the person's motion preference. Preserve information and state change through instant transitions, restrained fades, or static composition. Remove ambient, parallax, and decorative travel in the reduced experience.
+只有视觉作品确实需要滚动深度来表达空间、注意力或叙事关系时，才采用视差；它只是动效的一种分支。
 
-## Verify
+- 为每个前景、主体、中景和背景图层指定空间、注意力或叙事职责，不做无意义的不同速漂移。
+- 设计完整的首帧、稳定的中间状态和明确的末帧。使用确定性的场景进度，使 `0%`、`25%`、`50%`、`75%`、`100%` 状态可重复捕获；停止或反向滚动时画面仍应连贯。
+- `run-live` 视觉在离屏或文档隐藏时暂停，恢复时避免时间轴突然跳变。减少动态效果时呈现最有力的完整静态构图。
 
-Test entry, exit, reversal, rapid repeated input, hidden-tab recovery, narrow screens, reduced motion, and lower-performance devices when relevant. Confirm that movement never blocks input or leaves content invisible.
+## 提供减少动态效果体验
+
+尊重用户的动态效果偏好。通过即时切换、克制淡入淡出或静态构图保留信息与状态变化；减少动态效果时移除氛围运动、视差和装饰性位移。
+
+## 验证
+
+相关时测试进入、退出、反向、快速重复输入、隐藏标签页恢复、窄屏、减少动态效果和低性能设备。确认动效不会阻塞输入，也不会让内容停留在不可见状态。

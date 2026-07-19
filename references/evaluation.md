@@ -1,47 +1,47 @@
-# Evaluation and Refinement
+# 评估与优化
 
-Use this reference for Review, Improve, and post-change verification.
+用于 Review（审查）、Improve（改进）和修改后的验证。
 
-## Inspect before changing
+## 修改前先检查
 
-Record the target surface, its primary job, the existing system, and the observed evidence. Separate:
+记录目标界面、核心任务、既有系统和观察证据，并区分：
 
-- **Preserve:** behavior, brand signals, hierarchy, components, and patterns that already serve the task.
-- **Change:** specific defects or mismatches that block clarity, identity, access, responsiveness, or quality.
+- **保留：** 已经服务任务的行为、品牌信号、层级、组件和模式。
+- **改变：** 妨碍清晰度、身份表达、无障碍、响应式或质量的具体缺陷与错位。
 
-For Improve, keep the intervention proportional to the evidence. For Review, report without editing unless implementation is also requested.
+Improve 路线的干预程度应与证据匹配。Review 路线只报告而不编辑，除非用户同时要求实施。
 
-## Evaluate by level
+## 分级评估
 
-### Required quality
+### 必需质量
 
-- semantic structure, meaningful labels, keyboard operation, visible focus, accessible names, contrast, and browser zoom;
-- correct links, buttons, form behavior, async status, and recovery from errors;
-- representative narrow and wide layouts without unintended overflow, occlusion, or lost content;
-- required interaction states and realistic content extremes;
-- successful runtime or build verification when the environment permits it.
+- 语义化结构、有意义的标签、键盘操作、可见焦点、无障碍名称、对比度和浏览器缩放；
+- 正确的链接、按钮、表单行为、异步状态和错误恢复；
+- 代表性的窄屏与宽屏布局，不出现意外溢出、遮挡或内容丢失；
+- 必要的交互状态和真实内容极值；
+- 环境允许时，通过运行或构建验证。
 
-### Conditional quality
+### 条件质量
 
-Apply when the surface needs it: reduced motion, localization, safe areas, large-list performance, URL-synchronized state, destructive-action recovery, unsaved-change protection, and hydration safety.
+界面需要时检查：减少动态效果、本地化、安全区域、大列表性能、URL 同步状态、破坏性操作恢复、未保存更改保护和客户端水合安全。
 
-### Directional suggestions
+### 方向性建议
 
-Treat capitalization, punctuation, exact copy style, a particular motion technique, or a specific layout pattern as contextual suggestions. Let the brief and the target surface decide.
+把大小写、标点、具体文案风格、特定动效技术或特定布局模式视为情境性建议，由任务简报和目标界面决定。
 
-## Verify changes
+## 验证修改
 
-Compare the result with the brief and the preserved behavior. Exercise the main path, keyboard path, responsive layouts, focus, relevant states, and content extremes. Check console errors and runtime warnings. For motion, also verify interruption and reduced motion.
+将结果与任务简报和应保留行为对照。走通主要路径和键盘路径，检查响应式布局、焦点、相关状态和内容极值；检查控制台错误与运行警告。涉及动效时，另验可中断性和减少动态效果体验。
 
-Return to implementation only for observed defects or a clear missed objective.
+只有观察到具体缺陷或明确遗漏目标时，才返回实施阶段。
 
-## Report findings
+## 报告发现
 
-Group issues by severity:
+按严重程度组织问题：
 
-- **Critical:** prevents completion, access, or correct use.
-- **Major:** materially harms clarity, responsiveness, identity, or performance.
-- **Minor:** localized polish or maintainability issue.
-- **Suggestion:** plausible improvement whose value depends on preference or context.
+- **严重：** 阻止完成任务、访问或正确使用。
+- **主要：** 明显损害清晰度、响应式、身份表达或性能。
+- **次要：** 局部精修或可维护性问题。
+- **建议：** 可能有价值，但取决于偏好或情境的改进。
 
-For each actionable finding, include its location, evidence, impact, and a concrete correction. Mark unverified claims and allow a clean pass when the evidence supports it.
+每个可执行发现都要写明位置、证据、影响和具体修正方式。标注未经验证的判断；证据支持时允许给出无问题结论。
