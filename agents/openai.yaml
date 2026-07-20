@@ -1,4 +1,4 @@
 interface:
   display_name: "Craft Frontend 前端视觉创作"
-  short_description: "为网页完成视觉、动效、配乐、生产实现、审核与交付包优化"
-  default_prompt: "使用 $craft-frontend，让视觉、动效和配乐共同承担创作型网页的表达，并完成生产级实现与交付包优化。"
+  short_description: "制作视觉、动效、配乐完整的创作型网页与 Web PPT"
+  default_prompt: "使用 $craft-frontend，让视觉、动效和配乐共同承担创作型网页或 Web PPT 的表达，并完成生产实现、显示验证与交付包优化。"
