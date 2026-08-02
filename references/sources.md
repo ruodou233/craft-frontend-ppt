@@ -24,7 +24,7 @@
 
 | 案例 | 访问日期 | 参考内容 | 采用边界 |
 | --- | --- | --- | --- |
-| Son Daven，https://sondaven.com/en；项目说明见 https://webflow.com/made-in-webflow/website/sondaven-dev | 2026-07-19 | 页面与运行时脚本显示基于亮度的网格化竖条半调渲染、多层 WebGL 滚动合成、逐词错峰揭示与逐行上升揭示；不归类为 ASCII | `reference-only`；只抽象采用滚动进度映射、层级语义和文字编排方法，不复用其源码、品牌、字体、配色、栅格、文案、图像、视频、音频、图标、场景素材或特有编排序列 |
+| Son Daven，https://sondaven.com/en；项目说明见 https://webflow.com/made-in-webflow/website/sondaven-dev | 2026-07-19，2026-08-02 复核 | 页面与运行时脚本（GSAP SplitText + ScrollTrigger + Lenis）显示基于亮度的网格化竖条半调渲染、多层 WebGL 滚动合成、逐词错峰揭示、逐行上升揭示、逐字符滚动高亮与悬停字符切换；图片视差为遮罩容器内 `yPercent` 进度绑定；不归类为 ASCII | `reference-only`；只抽象采用滚动进度映射、层级语义和文字编排方法，不复用其源码、品牌、字体、配色、栅格、文案、图像、视频、音频、图标、场景素材或特有编排序列 |
 
 ## 明确排除
 

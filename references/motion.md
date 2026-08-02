@@ -53,7 +53,7 @@
 
 ### 滚动驱动的动态排版
 
-文字本身需要承担视觉事件时，可先用拆分文字（split text）把完整文本按行、词、字符或其组合建立可动画节点，再选择揭示、高亮、位移、缩放或显隐等动态排版行为。逐字符错峰动画（per-character stagger animation）描述的是字符之间的时间或进度偏移：它既可由 `scroll-triggered` 独立时间线触发，也可由 `scroll-linked` / `scrubbed` 进度驱动，还可用于悬停或场景切换；不要把拆分单位、错峰方式和触发关系混为一类效果。
+文字本身需要承担视觉事件时，可先用拆分文字（split text，事实标准实现为 GSAP SplitText）把完整文本按行、词、字符或其组合建立可动画节点，再选择揭示、高亮、位移、缩放或显隐等动态排版（kinetic typography）行为。常用已命名效果：逐字符错峰动画（per-character stagger animation）描述字符之间的时间或进度偏移；遮罩文字揭示（masked text reveal）指容器溢出隐藏、字符自 `yPercent` 偏移位进入；滚动文本高亮（scroll-linked text highlight）指滚动进度逐字符改变强调状态；悬停字符切换（hover char swap / text rollover）指双层字符上下替换。这些效果既可由 `scroll-triggered` 独立时间线触发，也可由 `scroll-linked` / `scrubbed` 进度驱动，还可用于悬停或场景切换；不要把拆分单位、错峰方式和触发关系混为一类效果。字符画（ASCII art）、乱码解码（scramble / decode）、打字机（typewriter）与跑马灯（marquee）是相邻的文字视觉分支，不属于拆分文字动态排版；主题需要时（如终端、复古计算、数据氛围）可按标志性元素单独选用一支，字符画需对辅助技术隐藏字符本体并提供等价替代文本。
 
 让辅助技术读取连贯原文，把纯装饰拆分节点或副本隐藏于无障碍树；首次渲染、减少动态效果和动画未初始化时仍显示完整文字。字体或宽度变化后重新拆分，并清理旧包装节点、时间线和触发器。`run-live` 视觉在离屏或文档隐藏时暂停，恢复时避免时间轴突然跳变。
 
