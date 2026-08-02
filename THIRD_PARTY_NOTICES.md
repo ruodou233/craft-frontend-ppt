@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-Craft Frontend includes substantially rewritten material derived from the pinned works listed in `references/sources.md`.
+Craft Frontend PPT includes substantially rewritten material derived from the pinned works listed in `references/sources.md`.
 
 - Anthropic `frontend-design`, Apache License 2.0.
 - Impeccable, Copyright 2025 Paul Bakaus, Apache License 2.0. Impeccable itself began from Anthropic's frontend-design work; this lineage is recorded to avoid double attribution of shared concepts.
@@ -10,4 +10,4 @@ Craft Frontend includes substantially rewritten material derived from the pinned
 
 The complete Apache-2.0 text is in `licenses/Apache-2.0.txt`. The complete applicable MIT notices are in `licenses/third-party-mit-notices.txt`.
 
-All derived files have been reorganized and materially rewritten for this project. No upstream author or organization endorses Craft Frontend.
+All derived files have been reorganized and materially rewritten for this project. No upstream author or organization endorses Craft Frontend PPT.
