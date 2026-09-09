@@ -40,9 +40,9 @@
 | Skill | 一句话介绍 |
 |---|---|
 | [domain-explorer](https://github.com/ruodou233/domain-explorer) | 速通新领域：四线并行调研，产出交互式知识地图 |
-| [de-ai-taste](https://github.com/ruodou233/de-ai-taste) | 中文去 AI 味：逐条检测 AI 生成痕迹并给修改建议 |
+| [de-ai-taste](https://github.com/ruodou233/de-ai-taste) | AI 写的中文一眼就能看出来？逐条找出 AI 味、给出具体修改建议，让文章、讲稿和文案读起来像你写的。 |
 | [improve-product-plan](https://github.com/ruodou233/improve-product-plan) | 把模糊的产品想法梳理成可开发、可验收的 SPEC.md |
 | [wisdom-roundtable](https://github.com/ruodou233/wisdom-roundtable) | 智慧圆桌：11 位思想家并行独立分析你的决策 |
-| [agent-orchestration](https://github.com/ruodou233/agent-orchestration) | 长任务治理：主代理指挥、子代理干活、状态落盘、断点续跑 |
+| [agent-orchestration](https://github.com/ruodou233/agent-orchestration) | 复杂任务跑到半夜，你不可能一直盯着。让 Agent 分工跑长任务和批量工作，你只管第二天早上收结果。 |
 
 其他开源 skill 见 [GitHub 主页](https://github.com/ruodou233)。
