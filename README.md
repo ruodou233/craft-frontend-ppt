@@ -1,4 +1,6 @@
-# Craft Frontend PPT
+# 网页 PPT 与前端设计｜HTML Presentations & Frontend Design
+
+Create HTML slide decks, portfolios, landing pages, and interactive stories with visual design, animation, and sound.
 
 让网页成为舞台，让视觉、动效与声音替你的内容开口。这个 skill 从内容和使用场景出发，确定视觉方向，再把版式、交互、动效和配乐做进前端。可以从零做网站和浏览器里的演讲，也可以接着已有页面改，把值得强调的内容做出分量。
 
@@ -39,10 +41,10 @@
 <!-- 本表由 AgentOps 私有 catalog（skills.yml）生成，勿手工编辑 -->
 | Skill | 一句话介绍 |
 |---|---|
-| [domain-explorer](https://github.com/ruodou233/domain-explorer) | 速通新领域：四线并行调研，产出交互式知识地图 |
-| [de-ai-taste](https://github.com/ruodou233/de-ai-taste) | AI 写的中文一眼就能看出来？逐条找出 AI 味、给出具体修改建议，让文章、讲稿和文案读起来像你写的。 |
-| [improve-product-plan](https://github.com/ruodou233/improve-product-plan) | 把模糊的产品想法梳理成可开发、可验收的 SPEC.md |
-| [wisdom-roundtable](https://github.com/ruodou233/wisdom-roundtable) | 智慧圆桌：11 位思想家并行独立分析你的决策 |
-| [agent-orchestration](https://github.com/ruodou233/agent-orchestration) | 复杂任务跑到半夜，你不可能一直盯着。让 Agent 分工跑长任务和批量工作，你只管第二天早上收结果。 |
+| [domain-explorer](https://github.com/ruodou233/domain-explorer) | 速通新领域：四线并行调研，产出交互式知识地图<br>Get up to speed on a new topic through its history, competing approaches, expert debates, and practical experience. |
+| [de-ai-taste](https://github.com/ruodou233/de-ai-taste) | AI 写的中文一眼就能看出来？逐条找出 AI 味、给出具体修改建议，让文章、讲稿和文案读起来像你写的。<br>Review AI-written Chinese and suggest edits to remove formulaic phrasing while preserving the author's voice. |
+| [improve-product-plan](https://github.com/ruodou233/improve-product-plan) | 把模糊的产品想法梳理成可开发、可验收的 SPEC.md<br>Plan product requirements and MVP scope, then produce a development spec with milestones and acceptance criteria. |
+| [wisdom-roundtable](https://github.com/ruodou233/wisdom-roundtable) | 智慧圆桌：11 位思想家并行独立分析你的决策<br>Explore ideas and decisions through multiple mental models, then compare their assumptions, blind spots, agreements, and disagreements. |
+| [agent-orchestration](https://github.com/ruodou233/agent-orchestration) | 复杂任务跑到半夜，你不可能一直盯着。让 Agent 分工跑长任务和批量工作，你只管第二天早上收结果。<br>Coordinate AI agents for long-running tasks, parallel work, and overnight workflows. |
 
 其他开源 skill 见 [GitHub 主页](https://github.com/ruodou233)。
