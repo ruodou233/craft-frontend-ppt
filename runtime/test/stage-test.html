@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>talk-stage 验收页</title>
+<!-- 可选：?parsedelete=1 时在解析期删掉 P2、P3（模拟 route.js） -->
+<script>
+  /* ?notes=empty|short|bad：在底座读取之前改写备注，测异常备注 */
+  (function () {
+    var m = /[?&]notes=(\w+)/.exec(location.search);
+    if (!m) return;
+    document.addEventListener('DOMContentLoaded', function () {
+      var tag = document.getElementById('speaker-notes');
+      tag.textContent = { empty: '[]', short: '["一","二","三"]', bad: '["坏掉的' }[m[1]];
+    });
+  })();
+  window.__hashLog = [location.hash];
+  if (/[?&]parsedelete=1/.test(location.search)) {
+    var finder = new MutationObserver(function () {
+      var st = document.querySelector('talk-stage');
+      if (!st) return;
+      finder.disconnect();
+      function kill(el) {
+        window.__hashLog.push(location.hash);
+        if (el.nodeType === 1 && /^P[23]$/.test(el.getAttribute('data-label') || '')) el.remove();
+      }
+      [].slice.call(st.children).forEach(kill);
+      var mo = new MutationObserver(function (rs) { rs.forEach(function (r) { [].forEach.call(r.addedNodes, kill); }); });
+      mo.observe(st, { childList: true });
+      document.addEventListener('DOMContentLoaded', function () { mo.disconnect(); window.__hashLog.push(location.hash); });
+    });
+    finder.observe(document.documentElement, { childList: true, subtree: true });
+  }
+</script>
+<script src="../talk-stage.js"></script>
+<style>
+  html,body{margin:0;background:#222}
+  talk-stage{background:#0b0b0b}
+  talk-stage > section{width:1920px;height:1080px;background:#f4efe6;color:#16140f;
+    font:600 120px/1.2 system-ui,sans-serif;display:flex;align-items:center;justify-content:center;gap:60px}
+  talk-stage > section .beat{font-size:60px;color:#c0392b}
+  @keyframes probe{from{opacity:.5}to{opacity:1}}
+  section[data-label="P6"][data-deck-active] .probe{animation:probe .2s}
+  .probe{font-size:40px}
+  #grab{width:300px;height:300px;background:#2e86c1;font-size:30px;color:#fff;display:flex;align-items:center;justify-content:center;touch-action:none}
+</style>
+</head>
+<body>
+<talk-stage width="1920" height="1080" duration="1">
+  <section data-label="P1">P1</section>
+  <section data-label="P2">P2 <span class="beat" data-beat="1">拍1</span><span class="beat" data-beat="2">拍2</span></section>
+  <section data-label="P3">P3 <input id="field" value="输入框" style="font-size:40px"></section>
+  <section slot="x" data-label="SLOT">SLOT</section>
+  <section data-label="P4" data-deck-skip>P4（跳过页）</section>
+  <section data-label="P5">P5 <div id="grab">拖我</div></section>
+  <section data-label="P6">P6 <span class="probe">probe</span></section>
+  <section data-label="P7">P7 <video poster="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="200"></video></section>
+  <section data-label="P8" data-deck-skip>P8（跳过页）</section>
+</talk-stage>
+<script type="application/json" id="speaker-notes">
+["第 1 条", "第 2 条", "第 3 条第一行\n第 3 条第二行", "第 4 条（跳过页）", "<b>x</b>", "第 6 条", "第 7 条", "第 8 条（跳过页）"]
+</script>
+<script src="../fx-core.js"></script>
+<script>
+  window.__log = [];
+  window.__fx = [];
+  window.__probe = 0;
+  var st = document.querySelector('talk-stage');
+  st.addEventListener('slidechange', function (e) {
+    var d = e.detail;
+    var act = st.querySelector(':scope > section[data-deck-active]');
+    __log.push({ type: 'slidechange', index: d.index, previousIndex: d.previousIndex, total: d.total, reason: d.reason,
+      slide: d.slide && d.slide.getAttribute('data-label'),
+      prev: d.previousSlide && d.previousSlide.getAttribute('data-label'),
+      activeAtCallback: act && act.getAttribute('data-label'),
+      prevStillActive: !!(d.previousSlide && d.previousSlide.hasAttribute('data-deck-active')),
+      hash: location.hash });
+  });
+  window.addEventListener('fx:slide', function (e) {
+    __log.push({ type: 'fx:slide', slide: e.detail.slide && e.detail.slide.getAttribute('data-label') });
+  });
+  document.addEventListener('animationstart', function (e) {
+    if (e.target.classList && e.target.classList.contains('probe')) __probe++;
+  });
+  document.getElementById('grab').addEventListener('pointerdown', function (e) { e.preventDefault(); });
+</script>
+</body>
+</html>

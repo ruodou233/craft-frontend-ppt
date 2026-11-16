@@ -1,0 +1,33 @@
+/* route.css — 章节条 + 页码。颜色全走变量，在讲稿 :root 里覆盖即可。 */
+:where(:root){
+  --tr-bg:rgba(244,239,230,.94);
+  --tr-line:rgba(22,20,15,.16);
+  --tr-ink:rgba(22,20,15,.62);
+  --tr-on-bg:#16140F;
+  --tr-on-ink:#fff;
+  --tr-num:#16140F;
+  --tr-font:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  /* 深色页（section.dark）用的一组 */
+  --tr-dark-bg:rgba(10,10,12,.9);
+  --tr-dark-line:rgba(255,255,255,.14);
+  --tr-dark-ink:rgba(255,255,255,.6);
+  --tr-dark-num:#fff;
+}
+section > .tr-bar{
+  position:absolute;left:0;right:0;bottom:0;height:34px;z-index:40;
+  display:flex;align-items:stretch;pointer-events:none;
+  opacity:1 !important;transition:none !important; /* 有的特效会把整页子元素压暗，条不跟着暗 */
+  background:var(--tr-bg);border-top:1px solid var(--tr-line);
+  font-family:var(--tr-font);font-size:15px;line-height:1;letter-spacing:.06em;color:var(--tr-ink);
+}
+section > .tr-bar .tr-seg{display:flex;align-items:center;padding:0 22px;border-right:1px solid var(--tr-line);white-space:nowrap}
+section > .tr-bar .tr-seg.on{background:var(--tr-on-bg);border-right-color:var(--tr-on-bg);color:var(--tr-on-ink);font-weight:700}
+section > .tr-bar .tr-page{margin-left:auto;display:flex;align-items:center;padding:0 30px;white-space:nowrap}
+section > .tr-bar .tr-page b{color:var(--tr-num);font-weight:700;margin-right:.5em}
+
+section.dark > .tr-bar{background:var(--tr-dark-bg);border-top-color:var(--tr-dark-line);color:var(--tr-dark-ink)}
+section.dark > .tr-bar .tr-seg{border-right-color:var(--tr-dark-line)}
+section.dark > .tr-bar .tr-page b{color:var(--tr-dark-num)}
+
+/* 视频页不显示（封面等用 #talk-route 的 hideOn 列页名） */
+section[data-fx-focus="video"] > .tr-bar{display:none}

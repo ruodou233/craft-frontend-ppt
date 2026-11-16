@@ -1,4 +1,4 @@
 interface:
-  display_name: "Craft Frontend PPT｜创意网页与 Web 演示"
-  short_description: "让网页成为舞台，让视觉、动效与声音替你的演讲开口。"
-  default_prompt: "使用 $craft-frontend-ppt，让视觉、动效和配乐共同承担创作型网页或 Web PPT 的表达，并完成生产实现、显示验证与交付包优化。"
+  display_name: "Craft Frontend PPT｜网页演讲"
+  short_description: "让网页成为舞台：把讲稿做成在浏览器里讲的演讲，一页一个特效，带离线演讲者窗。"
+  default_prompt: "使用 $craft-frontend-ppt，把讲稿做成网页演讲：先出逐页画面表，再用 runtime 搭骨架、写特效、排练并打包交付。"

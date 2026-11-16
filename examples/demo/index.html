@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>让网页成为舞台 · 样例</title>
+
+<!-- 章节条配置要在 route.js 之前；route.js 要在 talk-stage.js 之前（它在解析期按路线删页） -->
+<link rel="stylesheet" href="../../runtime/route.css">
+<script type="application/json" id="talk-route">
+{
+  "chapters": [
+    {"name": "开场", "start": "封面"},
+    {"name": "底座与特效", "start": "PART 01"},
+    {"name": "排练", "start": "排练"}
+  ],
+  "routes": { "short": ["封面", "PART 01", "概率", "结尾"] },
+  "hideOn": ["封面"]
+}
+</script>
+<script src="../../runtime/route.js"></script>
+<script src="../../runtime/talk-stage.js"></script>
+
+<style>
+  :root{
+    --bg:#F4EFE6; --paper-2:#EDE5D2; --ink:#16140F; --ink-soft:#3A352A;
+    --accent:#D8442C; --accent-2:#1A4D8F; --highlight:#F0C419;
+    --serif:"Songti SC","Noto Serif SC","Source Han Serif SC","STSong",serif;
+    --sans:"PingFang SC","Noto Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    /* 章节条和总览跟着本稿配色 */
+    --tr-on-bg:var(--accent); --tr-num:var(--accent); --tr-dark-num:var(--highlight);
+    --dt-font:var(--mono);
+  }
+  html,body{margin:0;background:#0c0b08}
+  talk-stage{background:#0c0b08}
+
+  talk-stage > section{
+    width:1920px;height:1080px;box-sizing:border-box;position:relative;overflow:hidden;
+    padding:132px 168px 120px;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  }
+  talk-stage > section.red{background:var(--accent);color:#fff}
+  talk-stage > section.dark{background:var(--ink);color:var(--bg)}
+  /* 一圈细框 + 角标：纸面上的装订线 */
+  talk-stage > section::before{content:"";position:absolute;inset:36px;border:1.5px solid currentColor;opacity:.16;pointer-events:none}
+  .corner{position:absolute;top:58px;font:500 18px/1 var(--mono);letter-spacing:.28em;opacity:.55}
+  .corner.l{left:68px}.corner.r{right:68px}
+
+  .kicker{margin:0 0 36px;font:600 22px/1 var(--mono);letter-spacing:.32em;text-transform:uppercase;color:var(--accent)}
+  section.red .kicker,section.dark .kicker{color:var(--highlight)}
+  h1{margin:0;font:900 176px/1.04 var(--serif);letter-spacing:-.01em}
+  h2{margin:0;font:900 104px/1.12 var(--serif)}
+  .lede{margin:44px 0 0;font:400 40px/1.5 var(--sans);color:var(--ink-soft)}
+  section.dark .lede{color:rgba(244,239,230,.72)}
+  .key-p{color:var(--highlight);font-family:var(--mono)}
+
+  /* 入场：属性一出现就播；离开再回来会重播 */
+  @keyframes rise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+  section[data-deck-active] .anim-rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  section[data-deck-active] .anim-rise.d2{animation-delay:.18s}
+  section[data-deck-active] .anim-rise.d3{animation-delay:.36s}
+  html[data-fx-motion="reduced"] .anim-rise{animation:none!important}
+  @media print{.anim-rise{animation:none!important}}
+
+  /* 01 封面 */
+  .cover{position:absolute;left:168px;bottom:170px}
+  .tape{position:absolute;right:230px;top:250px;width:420px;height:520px;background:var(--paper-2);
+    border:1.5px solid rgba(22,20,15,.18);transform:rotate(3deg);box-shadow:6px 6px 0 rgba(22,20,15,.08)}
+  .tape::before{content:"";position:absolute;left:50%;top:-22px;width:150px;height:44px;margin-left:-75px;
+    background:rgba(240,196,25,.55);transform:rotate(-4deg)}
+  .tape span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font:900 300px/1 var(--serif);color:var(--accent)}
+
+  /* 02 原则 */
+  .rules{list-style:none;margin:80px 0 0;padding:0;display:grid;gap:34px}
+  .rules li{display:grid;grid-template-columns:120px 1fr;align-items:baseline;font:500 46px/1.4 var(--sans)}
+  .rules b{font:700 44px/1 var(--mono);color:var(--accent)}
+  .rules small{display:block;font-size:30px;color:var(--ink-soft);font-weight:400}
+
+  /* 03 章节页：印章落在正中，标题放左下 */
+  .chapter{position:absolute;left:168px;bottom:150px}
+  .chapter h2{font-size:120px}
+
+  /* 04 概率 */
+  .demo-hint{margin-top:56px;font:500 24px/1 var(--mono);letter-spacing:.2em;color:var(--ink-soft)}
+
+  /* 05 数字 */
+  .s5-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:110px}
+  .s5-stat{border-top:3px solid var(--ink);padding-top:28px}
+  .s5-num{font:900 150px/1 var(--serif);color:var(--accent)}
+  .s5-unit{font:900 70px/1 var(--serif);color:var(--accent);margin-left:6px}
+  .s5-label{margin-top:22px;font:500 34px/1.3 var(--sans)}
+
+  /* 07 排练 */
+  .keys{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 60px;margin-top:90px}
+  .keys div{display:flex;align-items:center;gap:26px;font:500 38px/1.3 var(--sans)}
+  kbd{min-width:84px;padding:14px 18px;text-align:center;font:700 32px/1 var(--mono);color:var(--ink);
+    background:var(--bg);border:2px solid var(--bg);box-shadow:0 6px 0 rgba(244,239,230,.35)}
+
+  /* 08 结尾 */
+  .end{position:absolute;left:168px;top:50%;transform:translateY(-50%)}
+  .end .g8-mask{margin:48px 0 0;font:700 64px/1.35 var(--serif);color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<talk-stage width="1920" height="1080" duration="10">
+
+  <section data-label="封面">
+    <div class="corner l">WEB TALK · SAMPLE</div><div class="corner r">2026</div>
+    <div class="tape" aria-hidden="true"><span>台</span></div>
+    <div class="cover">
+      <p class="kicker anim-rise">craft-frontend-ppt</p>
+      <h1 class="anim-rise">让网页<br>成为舞台</h1>
+      <p class="lede anim-rise d2">一页一个特效，删掉脚本，页面依然完整。</p>
+    </div>
+  </section>
+
+  <section data-label="原则">
+    <div class="corner l">01</div>
+    <p class="kicker">先讲清楚</p>
+    <h2 class="anim-rise">每页只讲一件事</h2>
+    <ol class="rules">
+      <li data-beat="1"><b>01</b><span>讲稿先行<small>先写要说的话，再决定这一页给观众看什么</small></span></li>
+      <li data-beat="2"><b>02</b><span>一个主角<small>每页只许一个特效，其余都安静地配合</small></span></li>
+      <li data-beat="3"><b>03</b><span>可以拆掉<small>删掉特效脚本，这一页仍然能讲</small></span></li>
+    </ol>
+  </section>
+
+  <section data-label="PART 01" class="red" data-stamp-num="01" data-stamp-sub="THE STAGE">
+    <div class="corner l">PART 01</div>
+    <div class="chapter">
+      <p class="kicker">PART 01</p>
+      <h2 class="anim-rise">底座与特效</h2>
+    </div>
+  </section>
+
+  <section data-label="概率">
+    <div class="corner l">02</div>
+    <p class="kicker">一个特效讲一个论点</p>
+    <h2 class="anim-rise">模型按概率选词</h2>
+    <p class="lede anim-rise d2">每一步都选了「最可能」的词，整句却可能越走越偏。</p>
+    <p class="demo-hint" data-beat="1">DEMO · 按 → 开始演示</p>
+  </section>
+
+  <section data-label="数字">
+    <div class="corner l">03</div>
+    <p class="kicker">这个样例有多大</p>
+    <h2 class="anim-rise">小到能整包拷走</h2>
+    <div class="s5-stats">
+      <div class="s5-stat" data-beat="1" data-roll-target="8"><span class="s5-num">8</span><div class="s5-label">页</div></div>
+      <div class="s5-stat" data-beat="2" data-roll-target="4"><span class="s5-num">4</span><div class="s5-label">个特效，各占一个文件</div></div>
+      <div class="s5-stat" data-beat="3" data-roll-target="4"><span class="s5-num">4</span><div class="s5-label">个运行时脚本</div></div>
+      <div class="s5-stat" data-beat="4" data-roll-target="0"><span class="s5-num">0</span><div class="s5-label">个外部依赖，断网也能讲</div></div>
+    </div>
+  </section>
+
+  <section data-label="备用" data-deck-skip>
+    <div class="corner l">备用</div>
+    <p class="kicker">data-deck-skip</p>
+    <h2>这是一张备用页</h2>
+    <p class="lede">顺序翻页会跳过它。按 Esc 在总览里点它，或在地址栏写 #6，都能直接到这里。<br>打印讲义时它也不会出现。</p>
+  </section>
+
+  <section data-label="排练" class="dark">
+    <div class="corner l">04</div>
+    <p class="kicker">排练</p>
+    <h2 class="anim-rise">按 <span class="key-p">P</span> 打开演讲者窗</h2>
+    <p class="lede anim-rise d2">当前页、下一页、备注、总用时和每页用时都在那边；演讲者窗里按翻页笔一样能翻。</p>
+    <div class="keys">
+      <div><kbd>→</kbd>下一步</div>
+      <div><kbd>←</kbd>上一步</div>
+      <div><kbd>P</kbd>演讲者窗</div>
+      <div><kbd>Esc</kbd>总览</div>
+      <div><kbd>T</kbd>计时胶囊</div>
+      <div><kbd>F</kbd>全屏</div>
+    </div>
+  </section>
+
+  <section data-label="结尾">
+    <div class="corner l">END</div>
+    <div class="end">
+      <h1 class="anim-rise">谢谢</h1>
+      <p class="g8-mask">让视觉、动效与声音<br>替你的内容开口。</p>
+    </div>
+  </section>
+
+</talk-stage>
+
+<script type="application/json" id="speaker-notes">
+[
+  "开场。这是一份样例讲稿：底座、特效、章节条和演讲者窗都在这里能看到。\n按 → 往下。",
+  "三条原则逐拍出现：每按一次 →，亮一条；三条都亮了，再按才翻页。",
+  "章节页：印章从屏幕外砸下来。翻走再回来会重播。",
+  "按 → 让打字机开始演示；演示期间可以继续讲。",
+  "四个数字随节拍逐个滚出来。HTML 里写的就是终值，删掉脚本也不缺内容。",
+  "备用页：顺序翻页不会到这里。",
+  "排练：按 P 打开演讲者窗，第一次真实翻页后自动开始计时。",
+  "结尾。"
+]
+</script>
+
+<script src="../../runtime/fx-core.js"></script>
+<script src="../../runtime/deck-tools.js"></script>
+<script src="fx/G8-拆字.js"></script>
+<script src="fx/S14-盖章.js"></script>
+<script src="fx/S21-概率打字机.js"></script>
+<script src="fx/S5-数字滚动.js"></script>
+</body>
+</html>
