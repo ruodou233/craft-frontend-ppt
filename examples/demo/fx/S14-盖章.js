@@ -188,12 +188,6 @@ FX.register({
     self._slide = slide;
     self._injectStyle();
 
-    /* 清理曾错挂到其他页的印章节点。 */
-    [].slice.call(document.querySelectorAll('.s14-stamp-el, .s14-ink-container')).forEach(function (node) {
-      var owner = node.closest('section');
-      if (owner && owner !== slide) node.remove();
-    });
-
     /* 每页复用唯一节点，反复激活不增长 DOM。 */
     self._stampEl = self._createStamp(slide);
     self._inkContainer = self._createInkContainer(slide);

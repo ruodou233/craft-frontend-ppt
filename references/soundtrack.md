@@ -23,33 +23,15 @@
 
 ## 接进页面
 
-曲目写成带 id 前缀 `bgm-track` 的 `<audio>`，fx-core 会把它们全部接进同一个分析器：
+曲目写成带 id 前缀 `bgm-track` 的 `<audio>`，用 `data-from` 写从哪一页起换，再在 `fx-core.js` 之后引入 `runtime/bgm.js`：按页名切曲、首次手势后出声、M 静音、视频页压低、打印暂停都由它负责。
 
 ```html
-<audio id="bgm-track-1" src="assets/audio/01-open.mp3" loop preload="auto"></audio>
-<audio id="bgm-track-2" src="assets/audio/02-stage.mp3" loop preload="none"></audio>
+<audio id="bgm-track-1" src="assets/audio/01-open.mp3" data-from="封面" loop preload="auto"></audio>
+<audio id="bgm-track-2" src="assets/audio/02-stage.mp3" data-from="PART 01" loop preload="none"></audio>
+<script src="runtime/bgm.js"></script>
 ```
 
-切曲按页名锚点算，不按序号（调页序不用改音乐）：
-
-```js
-const CUES = [ { from: '封面', track: 'bgm-track-1' }, { from: 'PART 01', track: 'bgm-track-2' } ];
-const stage = document.querySelector('talk-stage');
-function trackFor(slide) {
-  const labels = [...stage.querySelectorAll(':scope > section')].map((s) => s.dataset.label);
-  const at = labels.indexOf(slide.dataset.label);
-  let pick = CUES[0].track;
-  CUES.forEach((c) => { const i = labels.indexOf(c.from); if (i >= 0 && i <= at) pick = c.track; });
-  return pick;
-}
-stage.addEventListener('slidechange', (e) => { /* 淡出旧曲、淡入 trackFor(e.detail.slide) */ });
-```
-
-- `slidechange` 的第一次派发就是冷开那一页（深链接 `#N` 也一样），按它选曲，不会先播错第 1 页的曲子。
-- 浏览器要真实手势后才能出声：第一次点击或按键时再 `play()`。给一个 `M` 键和一个角落按钮做静音／恢复。
-- 视频页（`data-fx-focus="video"`）进页时把 BGM 压到 0，翻走恢复。
-- 打印前（`beforeprint`）暂停全部音乐。
-- 想让演讲者窗打开时不重复出声，什么都不用做：演讲者窗是静态快照，不会再跑一份音乐。
+fx-core 会把这些 `<audio>` 接进同一个分析器，供特效读 `api.audio`。切曲按页名找（调页序不用改，`?route=` 删掉的页也还找得到）；冷开 `#N` 时第一首就是那一页的曲子。演讲者窗是静态快照，不会再放一份音乐。
 
 ## 让特效跟着音乐动
 

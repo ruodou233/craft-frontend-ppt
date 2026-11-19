@@ -23,6 +23,7 @@ Turn a script into a talk you give from the browser: one slide at a time, one co
 | `runtime/fx-core.js` | 特效运行时：逐帧循环、舞台坐标、音乐能量、画布分层、页生命周期、页内节拍、减少动效、自动降质 |
 | `runtime/deck-tools.js` | Esc 页面总览、T 排练计时胶囊 |
 | `runtime/route.js` / `route.css` | 章节条和页码、按路线删页 |
+| `runtime/bgm.js` | 配乐：按页名切曲、M 静音、视频页压低音乐、打印暂停 |
 | `references/` | 底座接口与迁移、特效契约、改稿规则、配乐 |
 | `examples/demo/` | 8 页样例 |
 | `runtime/test/` | 底座的 62 项自动验收（Playwright + 本机 Chrome） |

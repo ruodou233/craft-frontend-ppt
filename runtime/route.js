@@ -49,7 +49,12 @@
     if (!keep || seenSet.has(el) || !isSlide(el)) return;
     seenSet.add(el);
     seen.push(labelOf(el));
-    if (!keep.has(labelOf(el))) el.remove();
+    if (keep.has(labelOf(el))) return;
+    /* 换成空的 slot 占位页：不显示、不计页，但页名还在，配乐的页名锚点照样找得到 */
+    var ph = document.createElement('section');
+    ph.setAttribute('slot', 'route-hidden');
+    ph.setAttribute('data-label', labelOf(el));
+    el.replaceWith(ph);
   }
 
   /* 解析阶段：先找到 <talk-stage>，再盯着它的直接子节点，来一页判一页。 */

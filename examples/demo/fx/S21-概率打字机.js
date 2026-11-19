@@ -254,6 +254,16 @@ FX.register({
     self._state        = 'idle';
   },
 
+  /* ─── finalize：减少动效和打印时直接给整句 + 印章 ─── */
+  finalize: function (slide, api) {
+    var self = this;
+    self.activate(slide, api);
+    self._active = false;
+    self._words.forEach(function (w) { self._commitWord(w.candidates[w.chosen].w, !!w.wrong); });
+    self._container.style.opacity = '1';
+    self._stampEl.style.opacity = '1';
+  },
+
   /* ─── tick：所有帧逻辑 ─── */
   tick: function (dt, api) {
     var self = this;

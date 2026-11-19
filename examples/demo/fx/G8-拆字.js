@@ -5,7 +5,7 @@
    行为：fx:slide 进入新页时处理，离开时把原 DOM 与 class 原样恢复（重复进出可重播）。
    契约：不开 rAF、不设定时器、不监听鼠标键盘——纯 CSS transition + transition-delay。
    无障碍：标题根记 aria-label 原文，拆分包装节点全部 aria-hidden；
-          reduced-motion 时 core 不发 fx:slide，本特效完全不介入。 */
+          reduced-motion 时（fx:slide 的 detail.motion 为 reduced）不拆字，标题按原样显示。 */
 FX.register({
   name: 'G8-split',
   match: 'global',
@@ -109,7 +109,7 @@ FX.register({
     window.addEventListener('fx:slide', function (e) {
       self._restore();
       var slide = e.detail.slide;
-      if (!slide) return;
+      if (!slide || e.detail.motion === 'reduced') return;
       /* 金句遮罩揭示优先（带 g8-mask 的不再走逐字） */
       [].slice.call(slide.querySelectorAll('.g8-mask')).forEach(function (el) {
         if (!el.hasAttribute('data-beat')) self._processMask(el);

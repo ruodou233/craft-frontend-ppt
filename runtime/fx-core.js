@@ -112,6 +112,8 @@
     try {
       var elements = [].slice.call(document.querySelectorAll('audio[id^="bgm-track"]'));
       if (!elements.length) { audio.health = 'no-tracks'; return; }
+      /* file:// 下 Chrome 把媒体接进分析器后只输出静音，所以不接，让 <audio> 原样出声 */
+      if (location.protocol === 'file:') { audio.health = 'native-file-fallback'; return; }
       ctx = new AudioCtor();
       var nextAnalyser = ctx.createAnalyser();
       nextAnalyser.fftSize = 256;
@@ -124,7 +126,7 @@
       audioContext = ctx;
       analyser = nextAnalyser;
       freq = nextFreq;
-      audio.health = location.protocol === 'file:' ? 'native-file-fallback' : 'ready';
+      audio.health = 'ready';
       if (ctx.state === 'suspended') ctx.resume().catch(function () {});
     } catch (error) {
       audio.health = 'fallback';
@@ -393,7 +395,14 @@
     updateGeometry();
     if (!next) return;
 
-    if (!motion.reduced) restoreBeatsAfterReduced(next);
+    if (!motion.reduced) {
+      restoreBeatsAfterReduced(next);
+      /* 从前面翻进来（Home、总览、goTo 往后跳）时节拍从零开始；按 ← 退回来仍保留全亮 */
+      if (previous && previous !== next && previous.isConnected &&
+          (previous.compareDocumentPosition(next) & Node.DOCUMENT_POSITION_FOLLOWING)) {
+        [].forEach.call(next.querySelectorAll('[data-beat].beat-on'), function (el) { el.classList.remove('beat-on'); });
+      }
+    }
 
     var label = next.getAttribute('data-label') || '';
     effects.forEach(function (effect) {

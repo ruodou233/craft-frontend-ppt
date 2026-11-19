@@ -22,6 +22,7 @@ description: 把讲稿做成在浏览器里讲的网页演讲（Web PPT）：逐
 | `runtime/fx-core.js` | 特效运行时：统一的逐帧循环、舞台坐标、音乐能量、画布分层、页生命周期、页内节拍、减少动效、自动降质 |
 | `runtime/deck-tools.js` | Esc 页面总览、T 排练计时胶囊 |
 | `runtime/route.js` + `route.css` | 每页底部章节条和页码；`?route=…` 按路线删页 |
+| `runtime/bgm.js` | 背景音乐按页名切曲、首次手势后出声、M 静音、视频页压低音乐、打印暂停（要配乐时引入） |
 | `examples/demo/` | 8 页样例：拆字、盖章、概率打字机、数字滚动四个特效 |
 | `references/fx-contract.md` | 写特效前必读的契约 |
 | `references/handoff-rules.md` | 改稿、续做、交接时读 |
@@ -66,7 +67,7 @@ description: 把讲稿做成在浏览器里讲的网页演讲（Web PPT）：逐
 
 ### 5. 配乐与视频页
 
-要音乐时读 `references/soundtrack.md`：先写 cue sheet，按页名锚点切曲，曲目要完整试听过、存进包里。视频页加 `data-fx-focus="video"`：进页从头播、背景音乐静音、翻走就停。
+要音乐时读 `references/soundtrack.md`：先写 cue sheet，曲目完整试听后存进包里，用 `runtime/bgm.js` 按页名切曲。视频页给 section 加 `data-fx-focus="video"`，bgm.js 负责进页从头播、压低音乐、翻走就停。
 
 ### 6. 排练
 
